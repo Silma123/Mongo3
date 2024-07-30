@@ -70,6 +70,13 @@ app.post("/chats",(req,res)=>{
   });
   res.redirect("/chats")
 })
+app.delete("/chats/:id",(req,res)=>{
+    let {id}=req.params;
+    let chattobedeleted=chat.findByIdAndDelete(id);
+    console.log(chattobedeleted);
+    res.redirect("/chats");
+
+})
     // async function main() {
     //   await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
     
