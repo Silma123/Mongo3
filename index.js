@@ -49,10 +49,10 @@ app.get("/chats/:id/edit",async (req,res)=>{
 
 app.put("/chats/:id",async (req,res)=>{
     let {id}=req.params;
-    let {msg:newmsg}=req.body;
+    let {newmsg}=req.body;
     let updatedchat= await chat.findByIdAndUpdate(id,{msg:newmsg},{runValidators:true,new:true});
-    console.log(req.body);
-    console.log(updatedchat);
+    //console.log(req.body);
+    //console.log(updatedchat);
     res.redirect("/chats");
 })
 app.post("/chats",(req,res)=>{
