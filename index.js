@@ -70,9 +70,9 @@ app.post("/chats",(req,res)=>{
   });
   res.redirect("/chats")
 })
-app.delete("/chats/:id",(req,res)=>{
+app.delete("/chats/:id",async (req,res)=>{
     let {id}=req.params;
-    let chattobedeleted=chat.findByIdAndDelete(id);
+    let chattobedeleted=await chat.findByIdAndDelete(id);
     console.log(chattobedeleted);
     res.redirect("/chats");
 
